@@ -54,6 +54,7 @@ class GitIgnore
     public function addEntry($file)
     {
         $addToGitIgnore = true;
+        $file = $this->normalizePath($file);
         foreach ($this->directoriesToIgnoreEntirely as $directory) {
             if (substr($file, 0, strlen($directory)) === $directory) {
                 $addToGitIgnore = false;
@@ -72,6 +73,7 @@ class GitIgnore
      */
     public function removeEntry($file)
     {
+        $file = $this->normalizePath($file);
         $index = array_search($file, $this->lines);
 
         if ($index !== false) {
@@ -129,4 +131,16 @@ class GitIgnore
             }
         }
     }
+
+    /**
+     * Normalizes paths to UNIX format
+     *
+     * @param string $file
+     * @return string
+     */
+    private function normalizePath($file)
+    {
+        return str_replace(DIRECTORY_SEPARATOR, '/', $file);
+    }
+
 }
