@@ -1,6 +1,6 @@
 {
-    "name": "aydin-hassan/magento-core-composer-installer",
-    "description": "A composer plugin for managing Magento Core",
+    "name": "summit/magento-core-composer-installer",
+    "description": "Summit composer plugin for managing Magento Core",
     "type": "composer-plugin",
     "license": "MIT",
     "require": {
@@ -16,6 +16,10 @@
         {
             "name": "Aydin Hassan",
             "email": "aydin@hotmail.co.uk"
+        },
+        {
+            "name": "Martin Polivka",
+            "email": "martin.polivka@summitmedia.com"
         }
     ],
     "autoload": {
