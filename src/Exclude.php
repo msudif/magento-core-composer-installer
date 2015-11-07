@@ -30,6 +30,7 @@ class Exclude
      */
     public function exclude($filePath)
     {
+        $filePath = $this->normalizePath($filePath);
         foreach ($this->excludes as $exclude) {
             if (substr($filePath, 0, strlen($exclude)) === $exclude) {
                 return true;
@@ -37,5 +38,16 @@ class Exclude
         }
 
         return false;
+    }
+
+    /**
+     * Normalizes paths to UNIX format
+     *
+     * @param string $file
+     * @return string
+     */
+    private function normalizePath($file)
+    {
+        return str_replace(DIRECTORY_SEPARATOR, '/', $file);
     }
 }
